@@ -1,0 +1,3 @@
+Esto es una prueba que ha de poder ser impesa y visualizada des el programa de la actividad 1.2
+Esto es una segunda prueba que revisara el trato de los retornos de carro
+				en estos metodos

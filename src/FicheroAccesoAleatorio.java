@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -15,7 +14,7 @@ public class FicheroAccesoAleatorio {
 		private List<Pair> campos;
 		private long longReg;
 		private long numReg = 0;
-		private Pair par;
+		
 		public FicheroAccesoAleatorio(String nomFich, List<Pair> campos) {
 			this.f = new File(nomFich);
 			this.campos = campos;
@@ -53,19 +52,30 @@ public class FicheroAccesoAleatorio {
 		public static void main(String[] args) {
 			List<Pair> campos = new ArrayList<>();
 			campos.add(new Pair("DNI",9));
-			campos.add(new Pair("Nombre",60));
 			campos.add(new Pair("CP",5));
+			campos.add(new Pair("Nombre",60));
 			try {
 				FicheroAccesoAleatorio faa = new FicheroAccesoAleatorio("Fic_acceso", campos);
 				Map<String, String> reg = new HashMap<>();
 				reg.put("DNI", "56789012B");
 				reg.put("Nombre", "Samper");
 				reg.put("CP", "29730");
+				System.out.println(reg);
 				faa.insertar(reg);
 				reg.clear();
+				reg.put("DNI", "56789032A");
+				reg.put("Nombre", "Sara");
+				reg.put("CP", "29342");
+				System.out.println(reg);
+				faa.insertar(reg);
+				reg.clear();
+				System.out.println(reg);
 				
+				
+			} catch (IOException ioe) {
+				System.out.println("IO error");
 			} catch (Exception e) {
-				// TODO: handle exception
+				e.printStackTrace();
 			}
 		}
 		
